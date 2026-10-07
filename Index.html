@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DataWorld | Mi Primera Base de Datos</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #E2CAD8;
+            color: #0E1F2F;
+        }
+
+        header {
+            background-color: #0E1F2F;
+            color: white;
+            padding: 20px 60px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #E2CAD8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #C18DB4;
+        }
+
+        .inicio {
+            min-height: 520px;
+
+            background: linear-gradient(
+                135deg,
+                #0E1B48,
+                #27425D
+            );
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 70px 20px;
+        }
+
+        .inicio-contenido {
+            max-width: 800px;
+        }
+
+        .inicio h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .inicio h1 span {
+            color: #C18DB4;
+        }
+
+        .inicio p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+
+            background-color: #C18DB4;
+
+            color: #0E1F2F;
+
+            padding: 14px 30px;
+
+            border-radius: 25px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background-color: #E2CAD8;
+        }
+
+        section {
+            padding: 70px 10%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .titulo h2 {
+            font-size: 36px;
+            color: #0E1B48;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: #27425D;
+            font-size: 17px;
+        }
+
+        .introduccion {
+            background-color: white;
+        }
+
+        .intro-contenido {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .intro-texto {
+            flex: 1;
+        }
+
+        .intro-texto h3 {
+            color: #27425D;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .intro-texto p {
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .intro-imagen {
+            flex: 1;
+        }
+
+        .intro-imagen img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+
+
+        .areas {
+            background-color: #E2CAD8;
+        }
+
+        .tarjetas {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background-color: white;
+
+            width: 300px;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            transition: 0.3s;
+
+            border-top: 6px solid #87A7D0;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-7px);
+            box-shadow: 0px 10px 25px rgba(14, 31, 47, 0.20);
+        }
+
+        .icono {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: #0E1B48;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta p {
+            line-height: 1.6;
+            color: #27425D;
+        }
+
+
+
+        .importancia {
+            background-color: #87A7D0;
+        }
+
+        .importancia-contenido {
+            background-color: white;
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 45px;
+
+            border-radius: 20px;
+
+            text-align: center;
+        }
+
+        .importancia-contenido h2 {
+            color: #0E1B48;
+            margin-bottom: 20px;
+        }
+
+        .importancia-contenido p {
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+
+
+        footer {
+            background-color: #0E1F2F;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 35px;
+        }
+
+        footer h3 {
+            color: #C18DB4;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #E2CAD8;
+        }
+
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav a {
+                margin: 10px;
+            }
+
+            .inicio h1 {
+                font-size: 40px;
+            }
+
+            .intro-contenido {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    //menu
+
+    <header>
+
+        <div class="logo">
+            DataWorld
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#introduccion">Bases de Datos</a>
+            <a href="#areas">Aplicaciones</a>
+            <a href="#importancia">Importancia</a>
+        </nav>
+
+    </header>
+
+
+
+    //inicio
+
+    <section class="inicio" id="inicio">
+
+        <div class="inicio-contenido">
+
+            <h1>
+                Descubre el mundo de las
+                <span>Bases de Datos</span>
+            </h1>
+
+            <p>
+                Conoce qué son las bases de datos, cómo funcionan
+                y por qué forman parte de muchas actividades que
+                realizamos todos los días.
+            </p>
+
+            <a href="#introduccion" class="boton">
+                Comenzar
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    //intro
+
+    <section class="introduccion" id="introduccion">
+
+        <div class="titulo">
+
+            <h2>¿Qué son las Bases de Datos?</h2>
+
+            <p>
+                La información organizada que hace funcionar al mundo digital.
+            </p>
+
+        </div>
+
+
+        <div class="intro-contenido">
+
+            <div class="intro-texto">
+
+                <h3>Información organizada</h3>
+
+                <p>
+                    Una base de datos es una colección de información
+                    organizada que permite guardar, consultar y modificar
+                    datos de una manera sencilla.
+
+                    Actualmente las bases de datos se encuentran presentes
+                    en muchas aplicaciones y servicios que utilizamos
+                    diariamente, como bancos, hospitales, escuelas,
+                    tiendas en línea y redes sociales.
+                </p>
+
+            </div>
+
+
+            <div class="intro-imagen">
+
+                <img
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+                alt="Servidores y bases de datos">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    //areas 
+
+    <section class="areas" id="areas">
+
+        <div class="titulo">
+
+            <h2>¿Dónde se utilizan?</h2>
+
+            <p>
+                Las bases de datos están presentes en muchas áreas de nuestra vida.
+            </p>
+
+        </div>
+
+
+        <div class="tarjetas">
+
+
+            <div class="tarjeta">
+
+                <div class="icono">
+                    🏦
+                </div>
+
+                <h3>Bancos y Finanzas</h3>
+
+                <p>
+                    Se utilizan para almacenar información de clientes,
+                    cuentas bancarias, transferencias, pagos y movimientos.
+                </p>
+
+            </div>
+
+
+
+            <div class="tarjeta">
+
+                <div class="icono">
+                    🏥
+                </div>
+
+                <h3>Hospitales</h3>
+
+                <p>
+                    Permiten guardar historiales médicos,
+                    citas, medicamentos y datos de los pacientes.
+                </p>
+
+            </div>
+
+
+
+            <div class="tarjeta">
+
+                <div class="icono">
+                    🎓
+                </div>
+
+                <h3>Educación</h3>
+
+                <p>
+                    Las escuelas almacenan información de alumnos,
+                    profesores, materias, calificaciones y horarios.
+                </p>
+
+            </div>
+
+
+
+            <div class="tarjeta">
+
+                <div class="icono">
+                    🛒
+                </div>
+
+                <h3>Comercio Electrónico</h3>
+
+                <p>
+                    Las tiendas en línea utilizan bases de datos
+                    para productos, clientes, compras y pedidos.
+                </p>
+
+            </div>
+
+
+
+            <div class="tarjeta">
+
+                <div class="icono">
+                    💬
+                </div>
+
+                <h3>Redes Sociales</h3>
+
+                <p>
+                    Guardan usuarios, publicaciones, comentarios,
+                    fotografías, mensajes y seguidores.
+                </p>
+
+            </div>
+
+
+
+            <div class="tarjeta">
+
+                <div class="icono">
+                    🏢
+                </div>
+
+                <h3>Empresas</h3>
+
+                <p>
+                    Ayudan a organizar información sobre empleados,
+                    clientes, productos, ventas y proveedores.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    
+    //Importancia
+
+    <section class="importancia" id="importancia">
+
+        <div class="importancia-contenido">
+
+            <h2>
+                ¿Por qué son importantes?
+            </h2>
+
+            <p>
+                Las bases de datos permiten almacenar grandes cantidades
+                de información de forma organizada.
+
+                Gracias a ellas las empresas y organizaciones pueden
+                encontrar información rápidamente, realizar consultas,
+                actualizar datos y tomar mejores decisiones.
+
+                Por esta razón se han convertido en una herramienta
+                fundamental dentro del mundo de la tecnología.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    //pie 
+
+    <footer>
+
+        <h3>DataWorld</h3>
+
+        <p>
+            Conociendo el mundo de las Bases de Datos
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
